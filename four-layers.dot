@@ -1,0 +1,61 @@
+digraph D {
+    label = "four layers"
+    labelloc = "t"
+    rankdir=LR           # or TB or BT or RL
+    bgcolor = azure
+  subgraph cluster_p {
+    label = "Layer 1"
+    #rank = same
+    bgcolor = skyblue
+
+    subgraph cluster_c2 {
+      label = "Layer 2b";
+      node [color=red  fontcolor=firebrick]
+      bgcolor="lightblue";
+      e;
+    }
+
+    subgraph cluster_c1 {
+      label = "Layer 2a";
+      bgcolor="lightblue"
+      a;
+
+      subgraph cluster_gc_1 {
+        label = "Layer 3a";
+         bgcolor = lightgray
+         node [color=black  fontcolor=black]
+         b;
+
+          subgraph cluster_ggc_1 {
+            
+            label = "layer 4a";
+            bgcolor="dimgray";
+            l4a;
+            }
+          subgraph cluster_ggc_2 {
+            label = "layer 4b";
+            bgcolor="dimgray";
+            l4b;
+            }
+
+    }
+      subgraph cluster_gc_2 {
+        label = "Layer 3b";
+        bgcolor="lightgray";
+          c;
+          d;
+      }
+
+    }
+
+
+  }
+a [style=filled;
+   color=darkblue
+   fillcolor=lightgray;
+   ]
+outside1 -> e
+outside2 -> e
+e -> {a b c d} 
+b -> {l4a l4b}
+} 
