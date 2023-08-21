@@ -3,7 +3,7 @@ digraph D {
     labelloc = "t"
     rankdir=LR           # or TB or BT or RL
     bgcolor = azure
-  subgraph cluster_p {
+  subgraph cluster_parent {
     label = "Layer 1"
     #rank = same
     bgcolor = skyblue
