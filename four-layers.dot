@@ -8,38 +8,38 @@ digraph D {
     #rank = same
     bgcolor = skyblue
 
-    subgraph cluster_c2 {
+    subgraph cluster_child2 {
       label = "Layer 2b";
       node [color=red  fontcolor=firebrick]
       bgcolor="lightblue";
       e;
     }
 
-    subgraph cluster_c1 {
+    subgraph cluster_child1 {
       label = "Layer 2a";
       bgcolor="lightblue"
       a;
 
-      subgraph cluster_gc_1 {
+      subgraph cluster_grandchild_1 {
         label = "Layer 3a";
          bgcolor = lightgray
          node [color=black  fontcolor=black]
          b;
 
-          subgraph cluster_ggc_1 {
+          subgraph cluster_greatgrandchild_1 {
             
             label = "layer 4a";
             bgcolor="dimgray";
             l4a;
             }
-          subgraph cluster_ggc_2 {
+          subgraph cluster_greatgrandchild_2 {
             label = "layer 4b";
             bgcolor="dimgray";
             l4b;
             }
 
     }
-      subgraph cluster_gc_2 {
+      subgraph cluster_grandchild_2 {
         label = "Layer 3b";
         bgcolor="lightgray";
           c;
