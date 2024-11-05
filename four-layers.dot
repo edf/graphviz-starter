@@ -1,8 +1,10 @@
 digraph D {
-    label = "four layers"
+    label = "four layers of clusters"
+    labeljust = "l"
     labelloc = "t"
     rankdir=LR           # or TB or BT or RL
-    bgcolor = azure
+    bgcolor = cadetblue3
+
   subgraph cluster_parent {
     label = "Layer 1"
     #rank = same
@@ -45,11 +47,17 @@ digraph D {
           c;
           d;
       }
-
     }
-
-
   }
+
+subgraph cluster_outside {
+        label = "Outside layers";
+        bgcolor="darkolivegreen3"
+        outside1
+        outside2
+        }
+
+
 a [style=filled;
    color=darkblue
    fillcolor=lightgray;
