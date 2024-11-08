@@ -1,0 +1,56 @@
+digraph D {
+    label = "functional replacements for f250"
+    labeljust = "l"
+    labelloc = "t"
+    rankdir=TB           # or TB or BT or RL
+    bgcolor = cadetblue3
+    spline=false
+
+  subgraph cluster_parent {
+    label = "imperial"
+    #rank = same
+    bgcolor = skyblue
+    "9/16"
+    "1/2"
+    "7/16"
+
+    subgraph cluster_child2 {
+      label = "lug nuts";
+      #node [color=red  fontcolor=darkolivegreen3]
+      bgcolor="darkolivegreen3";
+      "3/4"
+      "5/8"
+      }
+    }
+
+    subgraph cluster_parent1 {
+        label = "metric"
+        #rank = same
+        bgcolor = skyblue
+        17
+        14
+        13
+        11
+        10
+        8
+        7
+
+        subgraph cluster_outside {
+            label = "lug bolts";
+            bgcolor="darkolivegreen3"
+            rank=same
+            rankdir=RL
+            21
+            16
+            19
+            }
+        }
+
+#a [style=filled;color=darkblue fillcolor=lightgray;]
+
+11 -> "7/16" [dir=both]
+13 -> "1/2"  [dir=both]
+14 -> "9/16" [dir=both]
+16 -> "5/8"  [dir=both]
+19 -> "3/4"  [dir=both]
+} 
