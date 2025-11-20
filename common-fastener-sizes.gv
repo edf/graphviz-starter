@@ -36,7 +36,7 @@ digraph D {
         7
 
         subgraph cluster_outside {
-            label = "lug bolts";
+            label = "lug nuts";
             bgcolor="darkolivegreen3"
             rank=same
             rankdir=RL
