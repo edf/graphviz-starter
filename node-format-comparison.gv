@@ -1,0 +1,48 @@
+digraph G {
+  rankdir=LR;
+  label="Plain Text vs HTML-Formatted vs Nested Table Node";
+  labelloc="t";
+  labeljust="l";
+  bgcolor=azure;
+
+  // Plain text node
+  plain_node [
+    label="Frontend\n(UI/UX)",
+    shape=box,
+    style=filled,
+    fillcolor=lightblue
+  ];
+
+  // HTML-formatted node
+  html_node [
+    shape=plaintext,
+    label=<
+      <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" BGCOLOR="green">
+        <TR><TD><B>Backend</B><BR/>(Styled HTML)</TD></TR>
+      </TABLE>
+    >
+  ];
+
+  // Nested table node
+  nested_node [
+    shape=plaintext,
+    label=<
+      <TABLE BORDER="1" CELLBORDER="1" CELLSPACING="0" BGCOLOR="lightyellow">
+        <TR><TD COLSPAN="2" BGCOLOR="gold"><B>Database</B></TD></TR>
+        <TR>
+          <TD>Table</TD>
+          <TD>
+            <TABLE BORDER="1" CELLBORDER="1" CELLSPACING="0">
+              <TR><TD BGCOLOR="lightcyan">Row 1</TD></TR>
+              <TR><TD BGCOLOR="lightcyan">Row 2</TD></TR>
+              <TR><TD BGCOLOR="lightcyan">Row 3</TD></TR>
+            </TABLE>
+          </TD>
+        </TR>
+      </TABLE>
+    >
+  ];
+
+  // Invisible edges to align layout
+  plain_node -> html_node -> nested_node [style=invis];
+}
