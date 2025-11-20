@@ -1,0 +1,80 @@
+digraph G {
+  rankdir=TB;
+  label="Example Diagram with Table"
+  labelloc="t"; // top of the graph
+  labeljust="l"; // left-justified
+  bgcolor=azure
+
+  // Invisible anchor node to control vertical layout
+  layout_anchor [label="", width=0, height=0, style=invis];
+
+  // Three-tier web app diagram
+  subgraph cluster_webapp {
+    label="Three-Tier Web Application";
+    style=dashed;
+    color=gray;
+
+    frontend [
+      shape=plaintext,
+      label=< 
+        <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" BGCOLOR="lightblue">
+          <TR><TD><B>Frontend</B><BR/>(UI/UX)</TD></TR>
+        </TABLE>
+      >
+    ];
+
+    backend [
+      shape=plaintext,
+      label=< 
+        <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" BGCOLOR="green">
+          <TR><TD><B>Backend</B><BR/>(Application Logic)</TD></TR>
+        </TABLE>
+      >
+    ];
+
+    database [
+      shape=plaintext,
+      label=< 
+        <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" BGCOLOR="lightyellow">
+          <TR><TD><B>Database</B><BR/>(Storage)</TD></TR>
+        </TABLE>
+      >
+    ];
+
+    frontend -> backend -> database;
+  }
+
+  // HTML table with nested table
+  subgraph cluster_table {
+    label="HTML Table with Nested Table";
+    style=solid;
+    color=blue;
+
+    nested_table_example [
+      shape=plaintext,
+      label=< 
+        <TABLE BORDER="1" CELLBORDER="1" CELLSPACING="0">
+          <TR>
+            <TD BGCOLOR="lightgray">Header 1</TD>
+            <TD BGCOLOR="lightgray">Header 2</TD>
+          </TR>
+          <TR>
+            <TD BGCOLOR="white">Row 1, Col 1</TD>
+            <TD BGCOLOR="white">
+              <TABLE BORDER="1" CELLBORDER="1" CELLSPACING="0">
+                <TR><TD BGCOLOR="lightcyan">Nested 1</TD></TR>
+                <TR><TD BGCOLOR="lightcyan">Nested 2</TD></TR>
+                <TR><TD BGCOLOR="lightcyan">Nested 3</TD></TR>
+              </TABLE>
+            </TD>
+          </TR>
+        </TABLE>
+      >
+    ];
+  }
+
+  // Invisible edges to enforce vertical layout
+  layout_anchor -> frontend [style=invis];
+  database -> nested_table_example [style=invis];
+}
+
