@@ -1,0 +1,62 @@
+digraph G {
+
+  graph [
+      bgcolor=lightgray, 
+      fontname=Arial, 
+      fontcolor=blue, 
+      fonsize=12
+      style="filled,rounded"
+      ];
+  node [
+      fontname=Arial, 
+      fontcolor=blue    // node font color 
+      fontsize=11
+      shape=rectangle
+      fillcolor=lightgreen
+      style=filled
+      color=black       // node border color
+      ];
+  edge [
+      fontname=Helvetica, 
+      fontcolor=red, 
+      fontsize=9
+      ];
+
+  //rankdir=LR;
+  label="example title for diagram"
+  labelloc="t";     // top of the graph
+  labeljust="l";    // left-justified
+  newrank=true      // needed for node ranking
+  splines=ortho     // splines=curved
+  bgcolor=cadetblue4
+
+    subgraph cluster_1 {
+        fontcolor=lightgreen
+        label="example cluster 1"
+        
+        a [shape=circle]
+        a -> {b c d e f } [dir=both fillcolor=lightgreen]
+
+    }
+    
+    subgraph cluster_2 {
+        fontcolor=skyblue
+        label="example cluster 2"
+        
+        i [style=filled fillcolor="skyblue" shape=circle]
+        j [style=filled fillcolor="skyblue"]
+        k [style=filled fillcolor="skyblue"]
+        l [style=filled fillcolor="skyblue"]
+        m [style=filled fillcolor="skyblue"]
+        i -> {j k l m} [dir=both fillcolor=skyblue]
+
+    }   
+        
+    a -> i [dir=both, color=white penwidth=".5" arrowhead=vee arrowtail=vee]
+    
+    {rank=max;  a; i }
+    //{rank=same; b; j }
+    // m -> {x y z}
+    // {rank=min;  x; y; z }
+    
+}
